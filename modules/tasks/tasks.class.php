@@ -1047,8 +1047,8 @@ class CTask extends CW2pObject {
 
 			$body = ($AppUI->_('Project', UI_OUTPUT_RAW) . ': ' . $projname . "\n" . $AppUI->_('Task', UI_OUTPUT_RAW) . ':	 ' . $this->task_name);
 			//Priority not working for some reason, will wait till later
-			$body .= "\n" . $AppUI->_('Start Date', UI_OUTPUT_RAW) . ': ' . $task_start_date->format($df) . "\n";
-            $body .= $AppUI->_('Finish Date', UI_OUTPUT_RAW) . ': ' . $task_finish_date->format($df) . "\n";
+			$body .= "\n" . $AppUI->_('Start Date', UI_OUTPUT_RAW) . ': ' . (intval($this->task_start_date)) ? $task_start_date->format($df) : '' . "\n";
+            $body .= $AppUI->_('Finish Date', UI_OUTPUT_RAW) . ': ' . (intval($this->task_end_date)) ? $task_finish_date->format($df) : '' . "\n";
             $body .= $AppUI->_('URL', UI_OUTPUT_RAW) . ': ' . W2P_BASE_URL . '/index.php?m=tasks&a=view&task_id=' . $this->task_id . "\n\n";
             $body .= $AppUI->_('Description', UI_OUTPUT_RAW) . ': ' . "\n" . $this->task_description;
 			if ($users[0]['creator_email']) {
@@ -2252,6 +2252,7 @@ class CTask extends CW2pObject {
         $q->addQuery('CONCAT(contact_first_name, \' \', contact_last_name) AS real_name');
         $q->addWhere('task_log_task = ' . (int) $taskId . ($problem ? ' AND task_log_problem > 0' : ''));
         $q->addOrder('task_log_date');
+        $q->addOrder('task_log_created');
         $q->leftJoin('billingcode', '', 'task_log.task_log_costcode = billingcode_id');
         $q->addJoin('users', '', 'task_log_creator = user_id', 'inner');
         $q->addJoin('contacts', 'ct', 'contact_id = user_contact', 'inner');
