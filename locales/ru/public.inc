@@ -1,0 +1,22 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+'Access Denied'=>'Доступ запрещен',
+'accessDeniedMsg'=>'Вы попытались получить доступ у элементу web2Project без достаточных на то разрешений. Пожалуйста свяжитесь с администратором web2Project.',
+'Allowed Companies'=>'Доступные компании',
+'chgpwLogin'=>'Пользователь не существует',
+'chgpwUpdated'=>'Ваш пароль был обновлен',
+'chgpwWrongPW'=>'Вы ввели не правильный старый пароль',
+'Color Selector'=>'Выбор цвета',
+'colorLegend'=>'Выберите цвет для уникальной идентификации вашего выбора и закрытия элемента выбора цвета',
+'Contacts for'=>'Контакты для',
+'Continue'=>'Продолжить',
+'Current Password'=>'Текущий пароль',
+'New Password'=>'Новый пароль',
+'nodepartments, companies, permissions'=>'нет подразделений, компаний, разрешений',
+'notasks'=>'Нет доступных задач',
+'Preset'=>'Предустановка',
+'Repeat New Password'=>'Повтор нового пароля',
+'submit'=>'подтвердить',
+'View all allowed companies'=>'Показать все доступные компании',
+'[none]'=>'[нет]',

@@ -1,6 +1,7 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+'Add File Folder'=>'Ajouter un dossier de fichiers',
 'Add File'=>'Ajouter un fichier',
 'add new file'=>'Ajouter un nouveau fichier',
 'All Files'=>'Tous les fichiers',
@@ -27,11 +28,12 @@
 'File Name'=>'Nom du fichier',
 'File(s)'=>'Fichier(s)',
 'files list'=>'Liste des fichiers',
-'filesDelete'=>'Etes-vous certain de vouloir effacer ce fichier?',
+'filesDelete'=>'Êtes-vous certain de vouloir effacer ce fichier?',
 'Filter'=>'Filtre',
 'Final Version'=>'Version finale',
 'Folder Explorer'=>'Explorateur de dossier',
 'Folder Name'=>'Nom dossier',
+'Folder'=>'Dossier',
 'Go'=>'Allez!',
 'Major Revision'=>'Révision majeure',
 'Minor Revision'=>'Révision mineure',

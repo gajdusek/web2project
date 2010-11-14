@@ -1,6 +1,7 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+'(Select a Country)'=>'(Sélectionnez un pays)',
 'Active Projects'=>'Projets actifs',
 'Add Company'=>'Ajouter une société',
 'Address'=>'Adresse',
@@ -18,7 +19,7 @@
 'Company Name'=>'Nom de la société',
 'Company Owner'=>'Responsable de la société',
 'Company'=>'Société',
-'companyDelete'=>'Etes-vous sûre de vouloir effacer cette société?',
+'companyDelete'=>'Êtes-vous sûre de vouloir effacer cette société?',
 'companyValidName'=>'Veuillez saisir un nom de société valide',
 'delete company'=>'effacer cette société',
 'Description'=>'Description',
@@ -29,6 +30,7 @@
 'edit this company'=>'Modifier cette société',
 'edit'=>'Modifier',
 'Email'=>'Courriel',
+'Events'=>'Evénements',
 'Fax'=>'Télécopie',
 'inserted'=>'inséré',
 'Invalid Company ID'=>'ID société non valide',
@@ -54,6 +56,6 @@
 'test'=>'tester',
 'Type'=>'Type',
 'URL'=>'URL',
-'View Company'=>'Visualiser société',
+'View Company'=>'Voir société',
 'view this company'=>'Voir cette société',
 'Zip'=>'Code postal',

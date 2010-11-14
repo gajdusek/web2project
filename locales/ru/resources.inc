@@ -1,0 +1,23 @@
+##
+## DO NOT MODIFY THIS FILE BY HAND!
+##
+'Add Resource'=>'Добать ресурс',
+'All Resources'=>'Все ресурсы',
+'back'=>'назад',
+'Description'=>'Описание',
+'Details'=>'Детали',
+'doDelete'=>'',
+'Equipment'=>'Оборудование',
+'ID'=>'',
+'Max Alloc %'=>'',
+'Max Allocation %'=>'',
+'Maximum Allocation Percentage'=>'',
+'new resource'=>'новый ресурс',
+'Notes'=>'Заметки',
+'Resource ID'=>'Идентификатор ресурса',
+'resource list'=>'список ресурсов',
+'Resource Name'=>'Имя ресурса',
+'submit'=>'подтвердить',
+'Tool'=>'',
+'Type'=>'',
+'Venue'=>'',

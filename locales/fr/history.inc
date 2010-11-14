@@ -16,7 +16,7 @@
 'History deleted'=>'Historique supprimé',
 'History updated'=>'Historique mis-à-jour',
 'item'=>'article',
-'Login/Logouts'=>'Connexion/Déconnexions',
+'Login/Logouts'=>'Connexions/Déconnexions',
 'Modified'=>'Modifié',
 'New history'=>'Nouvel historique',
 'Projects'=>'Projets',

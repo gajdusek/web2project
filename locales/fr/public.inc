@@ -2,10 +2,10 @@
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
 'Access Denied'=>'Accés refusé',
-'accessDeniedMsg'=>'Vous n\'avez pas les droits suffisants pour accéder à cette fonction.</p><p>Merci de contacter l\'administrateur du syst&#232;me.</p>',
+'accessDeniedMsg'=>'Vous n\'avez pas les droits suffisants pour accéder à cette fonction.</p><p>Merci de contacter l\'administrateur du système.</p>',
 'Allowed Companies'=>'Sociétés autorisées',
 'chgpwLogin'=>'L\'utilisateur n\'existe pas',
-'chgpwUpdated'=>'Votre mot de passe a été mis ç jour',
+'chgpwUpdated'=>'Votre mot de passe a été mis à jour',
 'chgpwWrongPW'=>'Vous avez entré le mauvais ancien mot de passe',
 'Color Selector'=>'Sélecteur de couleurs',
 'colorLegend'=>'Choisir un couleur pour identifier la sélection, et fermer le Sélecteur de couleurs',
@@ -13,7 +13,7 @@
 'Continue'=>'Continuer',
 'Current Password'=>'Mot de passe actuel',
 'New Password'=>'Nouveau mot de passe',
-'nodepartments, companies, permissions'=>', pas de département, société ou autorisation.',
+'nodepartments, companies, permissions'=>'pas de service, société ou autorisation',
 'notasks'=>'Aucune tâche disponible',
 'Preset'=>'Pré-réglages',
 'Repeat New Password'=>'Répétez le nouveau mot de passe',
