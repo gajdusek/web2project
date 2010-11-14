@@ -1,6 +1,7 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+'(Select a user)',
 'Actual',
 'Add Department',
 'All Departments',
@@ -11,12 +12,12 @@
 'Cost',
 'delDept'=>'Are you sure you want to delete this department',
 'delete department',
-'Department',
 'Department Company',
 'department list',
-'departmentDelete'=>'Are you sure you want to delete this department',
 'Department Name',
 'Department Parent',
+'Department',
+'departmentDelete'=>'Are you sure you want to delete this department',
 'deptIndexPage'=>'Please access departments via a company',
 'deptValidName'=>'Please enter a valid Department name',
 'deptWithProject'=>'You cannot delete a department that has projects associated with it',
@@ -37,7 +38,6 @@
 'Profit',
 'Project Name',
 'Projects Gantt',
-'(Select a user)',
 'Select Unit',
 'Show Projects whose Owner is Member of the Dep.',
 'Show Projects with assigned Tasks',
