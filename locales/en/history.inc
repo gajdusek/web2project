@@ -1,13 +1,13 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
-'Added new',
 'Add history',
+'Added new',
 'any',
 'cancel',
 'Date',
-'Deleted',
 'delete history',
+'Deleted',
 'Description',
 'Edit history',
 'Files',
