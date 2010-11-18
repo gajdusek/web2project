@@ -1,9 +1,9 @@
 ##
 ## DO NOT MODIFY THIS FILE BY HAND!
 ##
+'All'=>'Todos',
 'All Links'=>'Todos os Links',
 'All Projects'=>'Todos os Projetos',
-'All'=>'Todos',
 'Application'=>'Aplicação',
 'Are you sure you want to cancel?'=>'Tem a certeza de que deseja cancelar?',
 'Attach a link'=>'Criar um Link',
@@ -23,12 +23,12 @@
 'Page(s)'=>'Pag.(s)',
 'Please select a project first!'=>'Por favor selecione um Projeto primeiro!',
 'Project'=>'Projeto',
-'Search in name and description fields'=>'Procurar nos campos nome e descrição',
 'Search'=>'Procurar',
+'Search in name and description fields'=>'Procurar nos campos nome e descrição',
 'select task'=>'selecione a tarefa',
 'submit'=>'guardar',
-'Task Name'=>'Nome da Tarefa',
 'Task'=>'Tarefa',
+'Task Name'=>'Nome da Tarefa',
 'Type'=>'Tipo',
 'Unknown'=>'Desconhecido',
 'Uploaded By'=>'Upload Por',
