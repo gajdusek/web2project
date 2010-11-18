@@ -13,7 +13,7 @@
 'Continue'=>'Kontynnuj',
 'Current Password'=>'Obecne hasło',
 'New Password'=>'Nowe hasło',
-'nodepartments, companies, permissions'=>'\"nodepartments\", firmy, zezwolenia',
+'nodepartments, companies, permissions'=>'"nodepartments", firmy, zezwolenia',
 'notasks'=>'Zadania niedostępne',
 'Preset'=>'Preset',
 'Repeat New Password'=>'Powtórz hasło',
