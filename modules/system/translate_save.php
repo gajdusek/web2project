@@ -54,6 +54,7 @@ if (!$fp) {
 }
 
 $txt = "##\n## DO NOT MODIFY THIS FILE BY HAND!\n##\n";
+$txt_pieces = array();
 
 if ($lang == 'en') {
 	// editing the english file
@@ -61,10 +62,11 @@ if ($lang == 'en') {
 		if (($langs['abbrev'] || $langs['english']) && empty($langs['del'])) {
 			$langs['abbrev'] = addslashes(stripslashes($langs['abbrev']));
 			$langs['english'] = w2p_export_single_quoted_string($langs['english'], false);
+			$abbrev = '';
 			if (!empty($langs['abbrev'])) {
-				$txt .= '\'' . $langs['abbrev'] . '\'=>';
+				$abbrev = '\'' . $langs['abbrev'] . '\'=>';
 			}
-			$txt .= '\'' . $langs['english'] . '\',' . "\n";
+			$txt_pieces[] = $abbrev . '\'' . $langs['english'] . '\',';
 		}
 	}
 } else {
@@ -74,10 +76,12 @@ if ($lang == 'en') {
 			$langs['english'] = w2p_export_single_quoted_string($langs['english'], false);
 			$langs['lang'] = w2p_export_single_quoted_string($langs['lang'], false);
 			$txt .= '\'' . $langs['english'] . '\'=>\'' . $langs['lang'] . '\',' . "\n";
+			$txt_pieces[] = '\'' . $langs['english'] . '\'=>\'' . $langs['lang'] . '\',';
 		}
 	}
 }
-fwrite($fp, $txt);
+uksort($txt_pieces, create_function('$a,$b', '$la=strtolower($a); $lb=strtolower($b); return ($la>$lb) ? true : ( ($la<$lb) ? false : $a > $b );'));
+fwrite($fp, $txt . implode("\n", $txt_pieces) . "\n" );
 fclose($fp);
 
 $AppUI->setMsg('Locales file saved', UI_MSG_OK);

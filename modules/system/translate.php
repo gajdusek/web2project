@@ -59,7 +59,7 @@ if ($lang != 'en') {
 		}
 	}
 }
-ksort($trans);
+uksort($trans, create_function('$a,$b', '$la=strtolower($a); $lb=strtolower($b); return ($la>$lb) ? true : ( ($la<$lb) ? false : $a > $b );'));
 
 $titleBlock = new CTitleBlock('Translation Management', 'rdf2.png', $m, $m . '.' . $a);
 $titleBlock->addCell($AppUI->_('Module'), '', '<form action="?m=system&a=translate" method="post" name="modlang" accept-charset="utf-8">', '');
