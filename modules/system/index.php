@@ -36,6 +36,29 @@ $titleBlock->show();
             echo $AppUI->_('All installed update scripts have been executed.');
         }
         echo '<br />';
+
+        // whether is required manual database content conversion to UTF-8 and/or connection charset change 
+        $required_charset_action = $system->DBConnectionCharsetUpgradeRequired();
+        if ( $required_charset_action > 0 ) {
+            $url_why = array( 'http://wiki.web2project.net/index.php?title=Database_And_UTF8#why', $AppUI->_('wiki page')); 
+            $url_how = array( 'http://wiki.web2project.net/index.php?title=Database_And_UTF8#'.w2PgetConfig('dbtype'), $AppUI->_('wiki page')); 
+            switch( $required_charset_action ) {
+                case 1 : 
+                    printf( $AppUI->_('Your database is ready for setting UTF-8 connection charset. Please add %s to %s file.'), 
+                    		'<strong>$w2Pconfig[\'dbconn_charset\'] = \'utf8\';</strong>', 'includes/config.php' ); 
+                    echo '<br />';
+                    printf( $AppUI->_('See \'%s\' explaining why you should do this.'), $url_why );
+                    break;
+                case 2 : 
+                    echo $AppUI->_('Non-ASCII strings in your database may be screwed up. Please consider converting your data to UTF-8 and setting connection charset to UTF-8 afterwards.');
+                    echo '<br />';
+                    printf( $AppUI->_('See %s explaining why you should do this and %s explaining how to do it.'), 
+                    		'<a href='.$url_why[0].'>'.$url_why[1].'</a>', '<a href='.$url_how[0].'>'.$url_how[1].'</a>');
+                    break;
+            }
+            echo '<br />';
+        }
+
         $tzName = w2PgetConfig('system_timezone');
         if(strlen($tzName) == 0) {
             $tzName = ini_get('date.timezone');

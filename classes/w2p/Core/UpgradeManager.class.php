@@ -160,6 +160,7 @@ class w2p_Core_UpgradeManager {
         $configFile = str_replace('[DBNAME]', $dbConfig['dbname'], $configFile);
         $configFile = str_replace('[DBUSER]', $dbConfig['dbuser'], $configFile);
         $configFile = str_replace('[DBPASS]', $dbConfig['dbpass'], $configFile);
+        $configFile = str_replace('[DBCONN_CHARSET]', $dbConfig['dbconn_charset'] ? 'true' : 'false', $configFile);
         $configFile = str_replace('[DBPREFIX]', '', $configFile);
         //TODO: add support for configurable persistent connections
         $configFile = trim($configFile);
@@ -191,6 +192,67 @@ class w2p_Core_UpgradeManager {
 
         return $result;
     }
+    
+    /**
+     * Check if it is safe to force UTF8 as database connection charset.
+     * <b>Before calling this method w2p_Core_UpgradeManager::$configOptions must be properly set.</b>
+     * @param bool $after_db_conversion Set this to TRUE if you want to know whether converting data on database to UTF8 will help.
+     * @return bool Boolean represantaion of the answer to one of following questions:
+     *	 - Is it safe to force UTF8 as database connection charset right now? This question is answered by default.
+     *	 - Will it be safe, after the data on database will be converted to UTF8? This question will be answered if the $after_db_conversion parameter is set to TRUE.
+     * @uses _getDatabaseVersion() to check if database is empty, it is considered empty if version 0 is returned
+     * @uses _openDBConnection(), this method must NEVER set any database connection charset.
+     */
+    public function DBConnectionCharsetSafetyCheck( $after_db_conversion = false ) {
+        $result = false;
+        $result_after_db_conversion = false;
+
+        /*
+         * prerequisites check
+         */
+        
+        // check if $configOptions are properly set
+        if ( empty( $this->configOptions ) ) { // should never happen
+            $this->getActionRequired();
+            if ( empty( $this->configOptions ) ) {
+                trigger_error('Configuration is not set', E_USER_WARNING);
+                return false;
+            }
+        }
+        //  check if dbconn_charset is already set
+        if ( $this->configOptions['dbconn_charset'] and $after_db_conversion == false ) {
+            return true;
+        }
+        //check if database connection is working
+        $dbConn = $this->_openDBConnection();
+        if ( ! $dbConn->_errorMsg == '') {
+            trigger_error('Database connection failed', E_USER_NOTICE);
+            return false;
+        }
+        
+        /*
+         * Check if charset for database connection may be safely set
+         */ 
+ 
+        $empty_database = ( $this->_getDatabaseVersion( $dbConn ) == 0 );  // is database empty?
+
+        switch ( $this->configOptions['dbtype'] ) {
+            case 'mysql' :
+                $dbver = preg_replace( '/[^0-9.].*/', '', mysql_get_server_info( $dbConn->_connectionID ) );
+                if ( version_compare( $dbver, '5.0.7', '>=' ) ) { 
+                    if ( $empty_database or mysql_client_encoding() == 'utf8' ) $result = true;
+                    else $result_after_db_conversion = true;
+                }
+                break;
+            default:
+                // database not supported
+        }
+        
+        $dbConn->Close();
+        
+        return $after_db_conversion ? $result_after_db_conversion : $result;
+    }
+    
     public function upgradeRequired() {
         $dbConn = $this->_openDBConnection();
         return (count($this->_getMigrations()) > $this->_getDatabaseVersion($dbConn));

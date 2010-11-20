@@ -35,6 +35,7 @@
 		}
 
 		$dpConfig = $manager->getConfigOptions();
+		$dpConfig['dbconn_charset'] = $manager->DBConnectionCharsetSafetyCheck();
 		$config = $manager->createConfigString($dpConfig);
 
         if (!isset($errorMessages['version_fail'])) {

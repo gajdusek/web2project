@@ -26,6 +26,19 @@ $w2Pconfig['dbprefix'] = '[DBPREFIX]'; // The prefix used for db table names
 // set this value to true to use persistent database connections
 $w2Pconfig['dbpersist'] = false;
 
+/*
+ * Set this value to true to use UTF8 for database connection, 
+ * keep it false to use system default.
+ * 
+ * 1) KEEP THIS OPTION FALSE IF YOU DO NOT USE MYSQL 
+ *    (you have not set $w2Pconfig['dbtype'] = 'mysql') 
+ *    OR YOUR MYSQL SERVER VERSION IS < 5.0.7 !
+ * 2) IF YOU SET THIS TO TRUE AND HAVEN'T CONVERTED THE DATA ON THE DATABASE TO UTF8, 
+ *    YOUR DATA CHARACTERS WILL MOST PROBABLY END UP SCRAMBLED.
+ * YOU HAVE BEEN WARNED!!!
+ */
+$w2Pconfig['dbconn_charset'] = [DBCONN_CHARSET];
+
 /***************** Configuration for DEVELOPERS use only! ******/
 // Root directory and base_url are automatically set to avoid
 // getting them wrong.  They are not the same.

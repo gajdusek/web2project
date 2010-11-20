@@ -1,4 +1,11 @@
 <?php /* $Id$ $URL$ */
+
+/**
+ *	@package web2project
+ *	@subpackage system
+ *	@version $Revision$
+ */
+
 if (!defined('W2P_BASE_DIR')) {
 	die('You should not access this file directly.');
 }
@@ -17,7 +24,7 @@ class CSystem {
         $this->upgrader->getActionRequired();
         return $this->upgrader->upgradeRequired();
     }
-
+    
     public function upgradeSystem() {
         $this->upgrader->getActionRequired();
         return $this->upgrader->upgradeSystem();
@@ -27,6 +34,21 @@ class CSystem {
         return $this->upgrader->getUpdatesApplied();
     }
 
+    /**
+     * Check whether some action related to the database connection charset setting is required .
+     * @return 	integer Required action
+     * 			- <b>0</b> => no action required or no action is possible
+     * 			- <b>1</b> => set $w2Pconfig['dbconn_charset'] to true
+     * 			- <b>2</b> => convert data on database to UTF-8 and then set $w2Pconfig['dbconn_charset'] to true
+     * @uses w2p_Core_UpgradeManager::DBConnectionCharsetSafetyCheck()
+     */
+    public function DBConnectionCharsetUpgradeRequired() {
+        if ( w2PgetConfig( 'dbconn_charset', false ) ) return 0;
+        if ( $this->upgrader->DBConnectionCharsetSafetyCheck() ) return 1;
+        if ( $this->upgrader->DBConnectionCharsetSafetyCheck( true ) ) return 2;
+        return 0;
+    }
+    
     public function hook_cron()
     {
         global $w2Pconfig;

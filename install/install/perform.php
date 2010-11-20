@@ -27,6 +27,7 @@
 	 'dbname' => $dbname,
 	 'dbpass' => $dbpass,
 	 'dbuser' => $dbuser,
+	 'dbconn_charset' => false,
 	 'dbpersist' => $dbpersist,
 	 'root_dir' => $baseDir,
 	 'base_url' => $baseUrl,
@@ -56,7 +57,8 @@
 	$errorMessages = array();
 
 	if (($do_db || $do_db_cfg)) {
-		$errorMessages = $manager->upgradeSystem();
+	    $w2Pconfig['dbconn_charset'] = $manager->DBConnectionCharsetSafetyCheck();
+	    $errorMessages = $manager->upgradeSystem();
 		if (count($errorMessages) == 0) {
 			$dbMsg = 'Created';
 		} else {
